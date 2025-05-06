@@ -1,10 +1,10 @@
 var root = {
   wavecolor: {  
-    r: 125,
-    g: 52,
-    b: 253
+    r: 255,
+    g: 215,
+    b: 0
     },
-    rainbowSpeed: 0.5,
+    rainbowSpeed: 0.1,
     rainbow: true,
     matrixspeed: 50
 };
@@ -20,7 +20,8 @@ c.height = window.innerHeight;
 c.width = window.innerWidth;
 
 // the characters
-var konkani  = "゠アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレワヰヱヲンヺ・ーヽヿ0123456789"
+var konkani  = "ក	ខ	គ	ឃ	ង	ច	ឆ	ជ	ឈ	ញ	ដ	ឋ	ឌ	ឍ	ណ	ត ថ	ទ	ធ	ន	ប	ផ	ព	ភ	ម	យ	រ	ល	វ	ឝ	ឞ	ស ហ	ឡ	អ	ឣ	ឤ	ឥ	ឦ	ឧ	ឨ	ឩ	ឪ	ឫ	ឬ	ឭ	ឮ	ឯ ឰ	ឱ	ឲ	ឳ	ា	ិ	ី	ឹ	ឺ	ុ	ូ	ួ	ើ	ឿ ៀ	េ	ែ	ៃ	ោ	ៅ	ំ	ះ	ៈ	៉	៊	់	៌	៍	៎	៏ ័	៑	 ្ 	៓	។	៕	៖	ៗ	៘	៙	៚	៛	ៜ	៝ ០	១	២	៣	៤	៥	៦	៧	៨	៩ ៰	៱	៲	៳	៴	៵	៶	៷	៸	៹";
+konkani = konkani.split("	").join(""); // removing the tab characters
 // converting the string into an array of single characters
 var characters = konkani.split("");
 var font_size = 14;
@@ -38,22 +39,22 @@ function draw() {
     // Get the BG color based on the current time i.e. rgb(hh, mm, ss)
     // translucent BG to show trail
 
-    ctx.fillStyle = "rgba(0,0,0, 0.05)";
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
     ctx.fillRect(0, 0, c.width, c.height);
 
     ctx.fillStyle = "#BBB"; // grey text
-    ctx.font = font_size + "px arial";
+    ctx.font = font_size + "px khmer";
 
     // looping over drops
     for (var i = 0; i < drops.length; i++)
     {
         // background color
-        ctx.fillStyle = "rgba(10,10,10, 1)";
+        ctx.fillStyle = "rgb(0, 0, 0)";
         ctx.fillRect(i * font_size, drops[i] * font_size,font_size,font_size);
         // a random chinese character to print
         var text = characters[Math.floor(Math.random() * characters.length)];
         // x = i * font_size, y = value of drops[i] * font_size
-
+        //root.rainbow = false
         if (root.rainbow) {
           hue += (hueFw) ? 0.01 : -0.01;
           var rr = Math.floor(127 * Math.sin(root.rainbowSpeed * hue + 0) + 128);
