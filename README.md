@@ -13,6 +13,8 @@ Forked from `https://github.com/bad1dea/lively_matrix`
 - Browse to the cloned source code
 - select index.html
 
+## Images
+![alt text](preview3.png)
 
 ## Original
 See it in action @ http://parambirs.github.io/matrix
